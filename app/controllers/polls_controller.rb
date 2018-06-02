@@ -20,6 +20,6 @@ class PollsController < ApplicationController
   private
 
     def poll_params
-      params.require(:poll).permit(:topic)
+      params.require(:poll).permit(:topic, vote_options_attributes: [:id, :title, :_destroy])
     end
 end
