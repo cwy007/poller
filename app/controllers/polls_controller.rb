@@ -1,11 +1,12 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :edit, :update, :destroy]
+  before_action :set_poll, only: [:edit, :update, :destroy]
 
   def index
     @polls = Poll.all
   end
 
   def show
+    @poll = Poll.includes(:vote_options).find(params[:id])
   end
 
   def new
